@@ -52,6 +52,10 @@ $(document).ready(function () {
 		})
 		.trigger('change')
 
+	$('form').submit(function (e) {
+		e.preventDefault()
+	})
+
 	$('#beginExport').click(function () {
 		const accessToken = $('#access-token').val()
 		const object = currentSelected === 'custom' ? $('#custom-object').val() : currentSelected
