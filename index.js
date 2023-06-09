@@ -23,7 +23,7 @@ app.get('/properties', cors(corsOptions), async (req, res) => {
 		const archived = req.query.archived
 
 		try {
-			const apiResponse = await hubspotClient.crm.properties.coreApi.getAll(objectType, archived, null)
+			const apiResponse = await hubspotClient.crm.properties.coreApi.getAll(objectType, archived, undefined)
             const results = apiResponse.results
 			res.status(200).json( results )
 		} catch (e) {
