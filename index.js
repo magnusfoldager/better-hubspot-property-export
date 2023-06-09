@@ -12,6 +12,10 @@ var corsOptions = {
 }
 app.use(cors())
 
+app.get('/', (req, res) => {
+	res.status(200).json({ status: 'ok' })
+})
+
 app.get('/properties', cors(corsOptions), async (req, res) => {
 	if (req && req.query && req.query.accessToken && req.query.object && req.query.archived) {
 		const hubspotClient = new hubspot.Client({ accessToken: req.query.accessToken })
@@ -28,7 +32,7 @@ app.get('/properties', cors(corsOptions), async (req, res) => {
 })
 
 app.get('/health', (req, res) => {
-	res.status(200).json({ ok: 'ok' })
+	res.status(200).json({ status: 'ok' })
 })
 
 app.listen(PORT, function () {
