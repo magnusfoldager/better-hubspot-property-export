@@ -24,6 +24,10 @@ app.get('/properties', async (req, res) => {
 	} else res.status(406).json({ error: 'Not Accepted' })
 })
 
+app.get('/health', (req, res) => {
+    res.status(200).json({ok:'ok'})
+})
+
 app.listen(80, function () {
 	console.log('Listening on port 80')
 })
