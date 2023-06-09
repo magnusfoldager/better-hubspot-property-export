@@ -24,7 +24,8 @@ app.get('/properties', cors(corsOptions), async (req, res) => {
 
 		try {
 			const apiResponse = await hubspotClient.crm.properties.coreApi.getAll(objectType, archived, null)
-			res.status(200).json({ apiResponse })
+            const results = apiResponse.results
+			res.status(200).json( results )
 		} catch (e) {
 			res.status(500).json({ error: 'Internal Server Error' })
 		}
