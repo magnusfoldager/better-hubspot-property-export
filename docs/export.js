@@ -25,24 +25,18 @@ const twToggleParent = (sel) => {
 
 // Main Functions
 const beginExport = (accessToken, object, archived) => {
-	const url = `https://api.hubapi.com/crm/v3/properties/${object}`
-	const authorization = `Bearer ${accessToken}`
-
-	console.log(url,authorization,archived)
-
+	const url = `https://better-hubspot-property-export.onrender.com/properties?accessToken=${accessToken}&object=${object}&archived=${archived}`
 	$.ajax({
 		url,
-		crossDomain: true,
-		headers: {
-		  authorization,
-		  'Access-Control-Allow-Origin': '*',
+		type: 'GET',
+		dataType: 'json',
+		success: function (response) {
+			console.log(response)
 		},
-		data: {
-		  archived
+		error: function (xhr, status, error) {
+			console.log('Error:', error)
 		}
-	  }).done(function(response) {
-		console.log(response);
-	  });
+	})
 }
 
 // On Document Ready
@@ -61,7 +55,7 @@ $(document).ready(function () {
 	$('#beginExport').click(function () {
 		const accessToken = $('#access-token').val()
 		const object = currentSelected === 'custom' ? $('#custom-object').val() : currentSelected
-		const archived = $('#include-archived').is(":checked")
+		const archived = $('#include-archived').is(':checked')
 
 		beginExport(accessToken, object, archived)
 	})
