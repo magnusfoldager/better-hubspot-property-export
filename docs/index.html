@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-gray-100">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Better HubSpot Property Export</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+</head>
+
+<body class="h-full">
+  <div class="py-10">
+    <header class="mb-12">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-row gap-2">
+        <h1 class="text-3xl font-bold leading-tight tracking-tight text-gray-900">
+          Better HubSpot Property Export
+        </h1>
+        <a href="https://github.com/magnusfoldager/better-hubspot-property-export" target="_blank"
+          class="text-gray-400 hover:text-gray-500">
+          <svg class="h-5 w-5 flex-shrink-0" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"
+            aria-hidden="true">
+            <path
+              d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+          </svg>
+          <span class="sr-only">GitHub</span>
+        </a>
+      </div>
+    </header>
+    <main>
+      <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="space-y-10 divide-y divide-gray-900/10">
+          <div class="grid grid-cols-1 gap-x-8 gap-y-8 md:grid-cols-3">
+            <div class="px-4 sm:px-0">
+              <h2 class="text-base font-semibold leading-7 text-gray-900">Create your better export</h2>
+              <p class="mt-2 text-sm leading-6 text-gray-600">HubSpot is notoriously bad property exports, and will not
+                let you export data such as creation date, last updated date, who updated the property, and calculation
+                formula. This tool aims to let you export all fields available through the API.</p>
+              <p class="mt-2 text-sm leading-6 text-gray-600">Data configured in the form to the right is used only to
+                make a request to the HubSpot API through a Proxy  your browser, and is not saved anywhere. If you want to be extra careful, a new <a
+                  class="text-blue-600" href="https://developers.hubspot.com/docs/api/private-apps"
+                  target="_blank">private app</a> with the following scopes depending on your needs:</p>
+              <ul role="list" class="mt-2 divide-y divide-gray-200 text-sm leading-6 text-gray-600">
+                <li class="py-2">media_bridge.read</li>
+                <li class="py-2">crm.schemas.custom.read</li>
+                <li class="py-2">timeline</li>
+                <li class="py-2">tickets</li>
+                <li class="py-2">e-commerce</li>
+                <li class="py-2">crm.objects.goals.read</li>
+                <li class="py-2">crm.objects.contacts.read</li>
+                <li class="py-2">crm.objects.deals.read</li>
+                <li class="py-2">crm.schemas.quotes.read</li>
+                <li class="py-2">crm.objects.companies.read</li>
+                <li class="py-2">crm.objects.deals.write</li>
+                <li class="py-2">crm.schemas.deals.read</li>
+                <li class="py-2">crm.objects.companies.write</li>
+                <li class="py-2">crm.schemas.contacts.read</li>
+                <li class="py-2">crm.objects.contacts.write</li>
+                <li class="py-2">crm.schemas.companies.read</li>
+                <li class="py-2">crm.schemas.line_items.read</li>
+              </ul>
+            </div>
+
+            <form class="bg-white shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2 h-fit">
+              <div class="px-4 py-6 sm:p-8">
+                <div class="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                  <div class="sm:col-span-4">
+                    <label for="access-token" class="block text-sm font-medium leading-6 text-gray-900">Access
+                      Token</label>
+                    <div class="mt-2">
+                      <div
+                        class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                        <input type="text" name="access-token" id="access-token"
+                          class="block flex-1 border-0 bg-transparent py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                          placeholder="CJSP5qf1KhICAQEYs-gDIIGOBii1hQIyGQA...">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sm:col-span-4">
+                    <label for="object" class="block text-sm font-medium leading-6 text-gray-900">Object</label>
+                    <div class="mt-2">
+                      <select id="object" name="object"
+                        class="block w-fit rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                        <option value="contacts">Contact</option>
+                        <option value="companies">Company</option>
+                        <option value="deals">Deal</option>
+                        <option value="quotes">Quote</option>
+                        <option value="products">Product</option>
+                        <option value="tickets">Ticket</option>
+                        <option value="custom">Custom</option>
+                      </select>
+                      <div
+                        class="hidden mt-2 flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                        <input type="text" name="custom-object" id="custom-object"
+                          class="block flex-1 border-0 bg-transparent py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                          placeholder="custom_object_id">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sm:col-span-4 ">
+                    <label for="include-archived" class="block text-sm font-medium leading-6 text-gray-900">Archived
+                      Properties</label>
+                    <div class="mt-2 relative flex items-start">
+                      <div class="flex h-6 items-center">
+                        <input id="include-archived" name="include-archived" type="checkbox"
+                          class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                      </div>
+                      <div class="ml-3 text-sm leading-6">
+                        <label for="include-archived" class="text-gray-600">Include Archived Properties</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center justify-end gap-x-6 border-t border-gray-900/10 px-4 py-4 sm:px-8">
+                <button id="beginExport"
+                  class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Begin
+                  Export</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+  <script src="export.js"></script>
+
+</body>
+
+</html>
