@@ -59,7 +59,7 @@ $(document).ready(function () {
 	$('#beginExport').click(function () {
 		const accessToken = $('#access-token').val()
 		const object = currentSelected === 'custom' ? $('#custom-object').val() : currentSelected
-		const archived = $('#include-archived').is(':checked')
+		const archived = $('#only-archived').is(':checked')
 
 		beginExport(accessToken, object, archived)
 	})
