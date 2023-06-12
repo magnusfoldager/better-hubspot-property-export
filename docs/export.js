@@ -62,7 +62,7 @@ const exportToCsv = (results, object) => {
 	array.forEach(function (item, index) {
 		console.log(item, index)
 		let { name, label, calculated, description, createdAt, updatedAt, groupName, fieldType, type, displayOrder, externalOptions, formField, hasUniqueValue, hidden, hubspotDefined, modificationMetadata, options } = item
-		csv += `\r\n${JSON.stringify(name)},${JSON.stringify(label)},${JSON.stringify(calculated)},${JSON.stringify(description)},${JSON.stringify(createdAt)},${JSON.stringify(updatedAt)},${JSON.stringify(groupName)},${JSON.stringify(fieldType)},${JSON.stringify(type)},${JSON.stringify(displayOrder)},${JSON.stringify(externalOptions)},${JSON.stringify(formField)},${JSON.stringify(hasUniqueValue)},${JSON.stringify(hidden)},${JSON.stringify(hubspotDefined)},${JSON.stringify(modificationMetadata)},${JSON.stringify(options)}`
+		csv += `\r\n"${JSON.stringify(name)}","${JSON.stringify(label)}","${JSON.stringify(calculated)}","${JSON.stringify(description)}","${JSON.stringify(createdAt)}","${JSON.stringify(updatedAt)}","${JSON.stringify(groupName)}","${JSON.stringify(fieldType)}","${JSON.stringify(type)}","${JSON.stringify(displayOrder)}","${JSON.stringify(externalOptions)}","${JSON.stringify(formField)}","${JSON.stringify(hasUniqueValue)}","${JSON.stringify(hidden)}","${JSON.stringify(hubspotDefined)}","${JSON.stringify(modificationMetadata)}","${JSON.stringify(options)}"`
 	})
 
 	const filename = `${object}-${(new Date().toJSON().slice(0,16)).replace(':','-').replace('T','-')}.csv`
