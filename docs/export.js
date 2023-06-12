@@ -62,9 +62,7 @@ const exportToCsv = (results, object) => {
 	array.forEach(function (item, index) {
 		console.log(item, index)
 		let { name, label, calculated, description, createdAt, updatedAt, groupName, fieldType, type, displayOrder, externalOptions, formField, hasUniqueValue, hidden, hubspotDefined, modificationMetadata, options } = item
-		for (var index in array[i]) {
-			csv += `\r\n${name},${label},${calculated},${description},${createdAt},${updatedAt},${groupName},${fieldType},${type},${displayOrder},${externalOptions},${formField},${hasUniqueValue},${hidden},${hubspotDefined},${modificationMetadata},${options}`
-		}
+		csv += `\r\n${name},${label},${calculated},${description},${createdAt},${updatedAt},${groupName},${fieldType},${type},${displayOrder},${externalOptions},${formField},${hasUniqueValue},${hidden},${hubspotDefined},${modificationMetadata},${options}`
 	})
 
 	const filename = `${object}-${(new Date().toJSON().slice(0,16)).replace(':','-').replace('T','-')}.csv`
