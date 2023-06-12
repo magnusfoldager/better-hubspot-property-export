@@ -12,11 +12,9 @@ const twToggle = (sel) => {
 	$(sel).hasClass('hidden') ? twShow(sel) : twHide(sel)
 }
 const twShowParent = (sel) => {
-	console.log('Showing parent of', sel)
 	$(sel).parent().removeClass('hidden')
 }
 const twHideParent = (sel) => {
-	console.log('Hiding parent of', sel)
 	$(sel).parent().addClass('hidden')
 }
 const twToggleParent = (sel) => {
@@ -60,7 +58,6 @@ const exportToCsv = (results, object) => {
 	let csv = 'name,label,calculated,description,createdAt,updatedAt,groupName,fieldType,type,displayOrder,externalOptions,formField,hasUniqueValue,hidden,hubspotDefined,modificationMetadata,options'
 
 	array.forEach(function (item, index) {
-		console.log(item, index)
 		let { name, label, calculated, description, createdAt, updatedAt, groupName, fieldType, type, displayOrder, externalOptions, formField, hasUniqueValue, hidden, hubspotDefined, modificationMetadata, options } = item
 		csv += `\r\n"${JSON.stringify(name)}","${JSON.stringify(label)}","${JSON.stringify(calculated)}","${JSON.stringify(description)}","${JSON.stringify(createdAt)}","${JSON.stringify(updatedAt)}","${JSON.stringify(groupName)}","${JSON.stringify(fieldType)}","${JSON.stringify(type)}","${JSON.stringify(displayOrder)}","${JSON.stringify(externalOptions)}","${JSON.stringify(formField)}","${JSON.stringify(hasUniqueValue)}","${JSON.stringify(hidden)}","${JSON.stringify(hubspotDefined)}","${JSON.stringify(modificationMetadata)}","${JSON.stringify(options)}"`
 	})
@@ -83,7 +80,6 @@ $(document).ready(function () {
 		.on('change', function () {
 			$('select option:selected').each(function () {
 				let selected = $(this).val()
-				console.log(selected)
 				currentSelected = selected
 				selected === 'custom' ? twShowParent('#custom-object') : twHideParent('#custom-object')
 			})
