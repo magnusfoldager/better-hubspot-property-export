@@ -32,7 +32,7 @@ const setButtonStatus = (status) => {
 
 const csvSafeString = (input) => {
 	const str = JSON.stringify(input)
-	return str.replace(/"/g, '""')
+	return str?.replace(/"/g, '""')
 }
 
 // Main Functions
